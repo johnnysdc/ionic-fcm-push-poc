@@ -12,6 +12,16 @@
       <ion-title size="large">Tab 3</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Details of Push Notification</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Details of Push Notification above:
+      <h2>{{dataReceived | json}}</h2>
+    </ion-card-content>
+  </ion-card>
 
   <app-explore-container name="Tab 3 page"></app-explore-container>
 </ion-content>

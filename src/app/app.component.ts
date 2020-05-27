@@ -41,14 +41,15 @@ export class AppComponent {
       console.log(token);
     });
     this.fcm.onNotification().subscribe(notificationObj => {
-      console.log(notificationObj);
+      console.log({ notificationObj });
+      const dados = {notificacao: JSON.stringify(notificationObj)};
       if (notificationObj.wasTapped) {
         console.log('Received in background');
-        this.router.navigate([notificationObj.landing_page, { dados: notificationObj.dados }]);
+        this.router.navigate([notificationObj.landing_page, dados ]);
       } else {
         console.log('Received in foreground');
-        this.router.navigate(['/tabs/tab1', ]);
-        this.router.navigate([notificationObj.landing_page, { dados: notificationObj.dados }]);
+        // this.router.navigate(['/tabs/tab1', ]);
+        this.router.navigate([notificationObj.landing_page, dados]);
       }
     });
 
